@@ -5,42 +5,6 @@
       "name": "Aditya",
       "email": "ayc@gmail.com",
       "password": "abc@1234"
-    },
-    {
-      "id": "5b2e",
-      "name": "Yadav",
-      "email": "ayc@gmail.com",
-      "password": "abc@1234"
-    },
-    {
-      "id": "450c",
-      "Name": "",
-      "Password": "",
-      "Email": ""
-    },
-    {
-      "id": "e907",
-      "Name": "tony",
-      "Password": "adnhdw",
-      "Email": "tony@gmail.com"
-    },
-    {
-      "id": "b534",
-      "Name": "peter",
-      "Password": "abc@123",
-      "Email": "peter@gmail.com"
-    },
-    {
-      "id": "d5ac",
-      "Name": "dinesh",
-      "Password": "abc@123",
-      "Email": "deeshu@gmail.com"
-    },
-    {
-      "id": "c506",
-      "Name": "adity",
-      "Password": "sfpeaew",
-      "Email": ""
     }
   ]
 }
