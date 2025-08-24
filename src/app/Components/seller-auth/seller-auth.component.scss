@@ -1,0 +1,59 @@
+.seller-auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background-color: #f5f7fa; /* light background */
+}
+
+.sign-up {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+
+.sign-up h1 {
+  margin-bottom: 1.5rem;
+  color: #2874f0; /* navbar theme blue */
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.common-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.common-form input {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.common-form input:focus {
+  border-color: #2874f0; /* blue focus */
+  box-shadow: 0 0 4px rgba(40, 116, 240, 0.3);
+}
+
+.common-form button {
+  padding: 0.9rem;
+  background: #2874f0; /* navbar theme blue */
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.common-form button:hover {
+  background: #1f5ec0; /* darker blue on hover */
+}
