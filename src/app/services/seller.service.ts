@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Login, SignUp } from '../data-type';
 import { BehaviorSubject } from 'rxjs';
@@ -9,6 +9,8 @@ import { Router, withNavigationErrorHandler } from '@angular/router';
 })
 export class SellerService {
   isSellerLoggedIn = new BehaviorSubject<boolean>(false);
+  isLoginError = new EventEmitter<boolean>(false)
+
   constructor(private http: HttpClient, private router: Router) {}
 
   sellerSignUp(data: SignUp) {
@@ -39,6 +41,7 @@ export class SellerService {
           this.router.navigate(['seller-home']);
         } else {
           console.warn('login failed');
+          this.isLoginError.emit(true)
         }
       });
   }

@@ -19,8 +19,15 @@
     <form #sellerLogin="ngForm" (ngSubmit)="login(sellerLogin.value)" class="common-form">
       <input type="text" name="email" ngModel placeholder="Enter Email">
       <input type="password" name="password" ngModel placeholder="Enter Password">
+      
+      <!-- Error Message -->
+      <div *ngIf="authError" class="error-message">
+        {{ authError }}
+      </div>
+
       <button type="submit">Login</button>
       <a class="form-toggle" (click)="openSignUp()">Don't Have Account? Click to SignUp</a>
     </form>
   </div>
 </div>
+

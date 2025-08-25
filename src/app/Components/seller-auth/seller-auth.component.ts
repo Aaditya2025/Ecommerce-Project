@@ -10,6 +10,7 @@ import { Login, SignUp } from 'src/app/data-type';
 })
 export class SellerAuthComponent {
   showLogin: boolean = false;
+  authError: string = '';
   constructor(private seller:SellerService, private router: Router){ }
 
   ngOnInit(){
@@ -17,10 +18,17 @@ export class SellerAuthComponent {
   }
   signUp(data:SignUp):void {
     this.seller.sellerSignUp(data);
+
   }
 
   login(data:Login):void{
+    this.authError = "";
     this.seller.sellerLogin(data)
+    this.seller.isLoginError.subscribe((isError) => {
+      if(isError){
+        this.authError = "Email or password is not correct";
+      }
+    })
   }
 
   openLogin(){

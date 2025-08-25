@@ -9,6 +9,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SellerHomeComponent } from './Components/seller-home/seller-home.component';
+import { SellerAddProductComponent } from './Components/seller-add-product/seller-add-product.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SellerHomeComponent } from './Components/seller-home/seller-home.compon
     SellerAuthComponent,
     HomeComponent,
     SellerAuthComponent,
-    SellerHomeComponent
+    SellerHomeComponent,
+    SellerAddProductComponent
   ],
   imports: [
     BrowserModule,

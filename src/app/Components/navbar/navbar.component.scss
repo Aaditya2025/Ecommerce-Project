@@ -62,15 +62,29 @@
     list-style: none;
     display: flex;
     gap: 1.5rem;
+    cursor: pointer;
 
     li a {
+      position: relative;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
       text-decoration: none;
       color: #333;
       font-weight: 500;
-      transition: color 0.3s ease;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
 
+      /* Hover */
       &:hover {
+        background: rgba(0, 123, 255, 0.1);
         color: #007bff;
+        transform: translateY(-2px);
+      }
+
+      /* Active (clicked/current link) */
+      &.active {
+        background: #007bff;
+        color: #fff;
+        font-weight: 600;
       }
     }
   }
