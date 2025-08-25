@@ -1,10 +1,14 @@
 {
   "seller": [
     {
-      "id": "d637",
-      "name": "Aditya",
-      "email": "ayc@gmail.com",
+      "id": 1,
+      "email": "abc@gmail.com",
       "password": "abc@1234"
+    },
+    {
+      "id": 2,
+      "email": "test@gmail.com",
+      "password": "test123"
     }
   ]
 }
