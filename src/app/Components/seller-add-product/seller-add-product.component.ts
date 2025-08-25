@@ -12,11 +12,12 @@ export class SellerAddProductComponent {
 
   constructor(private product: ProductService){}
 
-  submit(data:product){
+  submit(data:product, form:any){
     this.product.addProduct(data).subscribe((res:any) => {
       console.warn(res);
       if(res){
-        this.addProductMessage = "Product is successfully added";
+        this.addProductMessage = "✅ Product Added Successfully";
+        form.resetForm();
       }
       setTimeout(() => (this.addProductMessage = undefined), 3000);
     });

@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit{
     this.route.events.subscribe((val: any) => {
       if(val.url){
         if(localStorage.getItem('seller') && val.url.includes('seller')){
-          console.warn('in seller area');
+          // console.warn('in seller area');
           this.menuType = "seller";
           if(localStorage.getItem('seller')){
             let sellerStore = localStorage.getItem('seller');
@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit{
             this.sellerName = sellerData.name;
           }
         } else {
-          console.warn('outside seller area');
+          // console.warn('outside seller area'); 
           this.menuType = 'default'
         }
       }
