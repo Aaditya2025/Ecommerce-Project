@@ -2,13 +2,35 @@
   "seller": [
     {
       "id": 1,
+      "name": "aditya",
       "email": "abc@gmail.com",
-      "password": "abc@1234"
+      "password": "abc123"
     },
     {
       "id": 2,
-      "email": "test@gmail.com",
+      "name": "dinesh",
+      "email": "dinesh@gmail.com",
       "password": "test123"
+    }
+  ],
+  "products": [
+    {
+      "id": "633f",
+      "name": "iphone 14",
+      "price": "10000",
+      "category": "Mobiles",
+      "color": "black",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqaciWk0ZkYRcOUnR_FGGv2OtDCz7XPGMxpA&s",
+      "description": "hello users"
+    },
+    {
+      "id": "6491",
+      "name": "samsung m13",
+      "price": 26000,
+      "color": "black",
+      "category": "mobile",
+      "description": "phone ",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqaciWk0ZkYRcOUnR_FGGv2OtDCz7XPGMxpA&s"
     }
   ]
 }
