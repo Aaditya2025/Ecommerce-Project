@@ -118,7 +118,7 @@ h1 {
 
 .toast {
   position: fixed;
-  bottom: 20px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #333;
@@ -132,12 +132,12 @@ h1 {
 
   /* Animation */
   opacity: 0;
-  animation: fadeInOut 3s ease-in-out forwards;
+  animation: slideDownFade 3s ease-in-out forwards;
 }
 
-@keyframes fadeInOut {
-  0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+@keyframes slideDownFade {
+  0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
   10% { opacity: 1; transform: translateX(-50%) translateY(0); }
   90% { opacity: 1; transform: translateX(-50%) translateY(0); }
-  100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
 }
