@@ -1,0 +1,43 @@
+<div class="update-product-card">
+    <h1>Add New Product</h1>
+
+    <!-- Success Message -->
+    <div *ngIf="productMessage" class="success-message">
+    <strong>{{ productMessage }}</strong>
+  </div>
+
+    <form #updateProduct="ngForm" (ngSubmit)="submit(updateProduct.value, updateProduct)">
+
+        <div class="form-group">
+            <label for="name">Product Name</label>
+            <input id="name" type="text" name="name" ngModel="{{productData?.name}}" placeholder="Enter Product Name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input id="price" type="number" name="price" ngModel="{{productData?.price}}" placeholder="Enter Product Price" required>
+        </div>
+
+        <div class="form-group">
+            <label for="color">Color</label>
+            <input id="color" type="text" name="color" ngModel="{{productData?.color}}" placeholder="Enter Product Color">
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category</label>
+            <input id="category" type="text" name="category" ngModel="{{productData?.category}}" placeholder="Enter Product Category">
+        </div>
+
+        <div class="form-group full-width">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" ngModel="{{productData?.description}}" placeholder="Enter Product Description"></textarea>
+        </div>
+
+        <div class="form-group full-width">
+            <label for="image">Image URL</label>
+            <input id="image" type="url" name="image" ngModel="{{productData?.image}}" placeholder="Enter Product Image URL">
+        </div>
+
+        <button type="submit">Update Product</button>
+    </form>
+</div>

@@ -93,15 +93,15 @@ h1 {
 .product-actions {
   margin-top: auto; /* pushes button to the bottom */
   display: flex;
-  justify-content: center; /* center horizontally */
+  justify-content: center;
+  gap: 12px; /* space between edit & remove */
 }
 
-.remove-btn {
-  background: #ff4d4d;
-  color: #fff;
+/* Common style for both buttons */
+.action-btn {
   border: none;
-  padding: 10px 20px;
-  border-radius: 25px;
+  padding: 8px 16px;
+  border-radius: 5px;
   font-size: 0.95rem;
   font-weight: bold;
   cursor: pointer;
@@ -110,29 +110,26 @@ h1 {
   text-align: center;
 }
 
+/* Remove Button */
+.remove-btn {
+  color: black;
+}
 .remove-btn:hover {
   background: #e60000;
+  color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(255, 77, 77, 0.4);
+  box-shadow: 0 3px 8px rgba(255, 77, 77, 0.4);
 }
 
-.toast {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #333;
+/* Edit Button */
+.edit-btn {
+  color: #00796b;
+}
+.edit-btn:hover {
+  background: #00bcd4;
   color: #fff;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-
-  /* Animation */
-  opacity: 0;
-  animation: slideDownFade 3s ease-in-out forwards;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0, 188, 212, 0.4);
 }
 
 @keyframes slideDownFade {

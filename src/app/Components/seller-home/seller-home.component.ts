@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { product } from 'src/app/data-type';
 import { ProductService } from 'src/app/services/product.service';
+import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-seller-home',
@@ -9,7 +10,10 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class SellerHomeComponent implements OnInit {
   productList: undefined | product[];
-  toastMessage: string = '';   // ✅ keep only toastMessage
+  toastMessage: string = '';
+  icon = faTrash;
+  editIcon = faPen;
+
 
   constructor(private productSrv: ProductService) {}
 
@@ -35,5 +39,9 @@ export class SellerHomeComponent implements OnInit {
     this.productSrv.productList().subscribe((res: any) => {
       this.productList = res;
     });
+  }
+
+  editProduct(id:number){
+
   }
 }
