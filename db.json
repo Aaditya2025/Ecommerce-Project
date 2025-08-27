@@ -15,22 +15,22 @@
   ],
   "products": [
     {
-      "id": "633f",
       "name": "iPhone 14",
-      "price": "10000",
-      "category": "Mobiles",
+      "price": 70000,
       "color": "Purple",
+      "category": "Mobiles",
+      "description": "hello users",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqaciWk0ZkYRcOUnR_FGGv2OtDCz7XPGMxpA&s",
-      "description": "hello users"
+      "id": "633f"
     },
     {
-      "id": "6491",
       "name": "Samsung M13",
-      "price": 26000,
+      "price": 26087,
       "color": "Black",
       "category": "mobile",
       "description": "phone ",
-      "image": "https://www.mystore.in/s/62ea2c599d1398fa16dbae0a/6647541958f121002454b524/in-galaxy-m13-5g-4gb-sm-m136bzndins-533154539-640x640.png"
+      "image": "https://www.mystore.in/s/62ea2c599d1398fa16dbae0a/6647541958f121002454b524/in-galaxy-m13-5g-4gb-sm-m136bzndins-533154539-640x640.png",
+      "id": "6491"
     }
   ]
 }
