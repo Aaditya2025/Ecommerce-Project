@@ -10,6 +10,8 @@ export interface Login{
 }
 
 export interface product{
+expanded: any
+imageUrl: any
     id:number,
     name: string, 
     price: number, 
