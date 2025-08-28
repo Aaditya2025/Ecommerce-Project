@@ -1,30 +1,45 @@
+<!-- Popular Products Section -->
+<div class="popular-products-section">
+  <h2 class="section-title">Popular Products</h2>
 
-	<ngb-carousel>
-		<ng-template ngbSlide>
-			<div class="picsum-img-wrapper">
-				<img [src]="images[0]" alt="Random first slide" />
-			</div>
-			<div class="carousel-caption">
-				<h3>First slide label</h3>
-				<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-			</div>
-		</ng-template>
-		<ng-template ngbSlide>
-			<div class="picsum-img-wrapper">
-				<img [src]="images[1]" alt="Random second slide" />
-			</div>
-			<div class="carousel-caption">
-				<h3>Second slide label</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-			</div>
-		</ng-template>
-		<ng-template ngbSlide>
-			<div class="picsum-img-wrapper">
-				<img [src]="images[2]" alt="Random third slide" />
-			</div>
-			<div class="carousel-caption">
-				<h3>Third slide label</h3>
-				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-			</div>
-		</ng-template>
-	</ngb-carousel>
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let item of popularProducts">
+      <img [src]="item.image" alt="{{ item.name }}" class="product-img" />
+      <h3 class="product-name">{{ item.name }}</h3>
+      <p class="product-price">₹{{ item.price }}</p>
+      <div class="product-meta">
+        <span class="product-color">{{ item.color }}</span>
+        <span class="product-category">{{ item.category }}</span>
+      </div>
+      <p class="product-description">{{ item.description }}</p>
+
+      <div class="product-actions">
+        <button class="add-to-cart-btn" (click)="addToCart(item)">🛒 Add to Cart</button>
+        <button class="view-details-btn" (click)="viewDetails(item)">View Details</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- All Products Section -->
+<div class="products-section all-products-section">
+  <h2 class="section-title">All Products</h2>
+
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let item of allProducts">
+      <img [src]="item.image" alt="{{ item.name }}" class="product-img" />
+      <h3 class="product-name">{{ item.name }}</h3>
+      <p class="product-price">₹{{ item.price }}</p>
+      <div class="product-meta">
+        <span class="product-color">{{ item.color }}</span>
+        <span class="product-category">{{ item.category }}</span>
+      </div>
+      <p class="product-description">{{ item.description }}</p>
+
+      <div class="product-actions">
+        <button class="add-to-cart-btn" (click)="addToCart(item)">🛒 Add to Cart</button>
+        <button class="view-details-btn" (click)="viewDetails(item)">View Details</button>
+      </div>
+    </div>
+  </div>
+</div>
