@@ -6,7 +6,7 @@
 
   <!-- Search -->
   <div *ngIf="menuType === 'default'" class="search-bar">
-    <input type="text" placeholder="Search for products..." />
+    <input type="text" (keyup)="searchProd($event)" placeholder="Search for products..." />
     <button type="submit">Search</button>
   </div>
 

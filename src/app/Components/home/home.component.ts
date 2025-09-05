@@ -15,7 +15,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.productService.popularProduct().subscribe((res) => {
-      console.warn(res);
       this.popularProducts = res;
     });
 
