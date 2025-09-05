@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { product } from 'src/app/data-type';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class NavbarComponent implements OnInit {
   menuType: string = 'default';
   sellerName: string = '';
-  searchResult: import("c:/Users/AdityaYadav/Desktop/Ecommerce-Project/src/app/data-type").product[] | undefined;
+  searchResult: product[] | undefined;
   constructor(private route: Router, private product: ProductService) {}
 
   ngOnInit() {
@@ -41,15 +42,27 @@ export class NavbarComponent implements OnInit {
   searchProd(query: KeyboardEvent) {
     if (query) {
       const element = query.target as HTMLInputElement;
+      const value = element.value.trim();
+
+      if (!value) {
+      // if input is empty → clear suggestions
+      this.searchResult = undefined;
+      return;
+    }
       this.product.searchProducts(element.value).subscribe((res) => {
         this.searchResult = res.filter(
           (p) =>
             p.name.toLowerCase().includes(element.value.toLowerCase()) ||
             p.category.toLowerCase().includes(element.value.toLowerCase())
         );
-        console.log(this.searchResult);
-        
+        if(this.searchResult.length > 5){
+          this.searchResult.length = 5;
+        }
       });
     }
+  }
+
+  hideSearch(){
+    this.searchResult = undefined
   }
 }

@@ -107,3 +107,48 @@
     }
   }
 }
+
+
+
+/* Dropdown under search input */
+.search-bar {
+  position: relative; /* so dropdown aligns with input */
+}
+
+.suggested-result {
+  position: absolute;
+  top: 100%; /* directly below input */
+  left: 0;
+  right: 0; /* makes it same width as input */
+  margin-top: 5px;
+  list-style: none;
+  background: #fff;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  z-index: 2000;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.suggested-result li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.suggested-result li:last-child {
+  border-bottom: none;
+}
+
+.suggested-result li:hover {
+  background: #f8f9fa;
+}
+
+.suggested-result li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  display: block;
+}

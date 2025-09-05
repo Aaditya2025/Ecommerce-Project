@@ -5,10 +5,17 @@
   </div>
 
   <!-- Search -->
-  <div *ngIf="menuType === 'default'" class="search-bar">
-    <input type="text" (keyup)="searchProd($event)" placeholder="Search for products..." />
-    <button type="submit">Search</button>
-  </div>
+<div *ngIf="menuType === 'default'" class="search-bar">
+  <input type="text" (keyup)="searchProd($event)" (blur)="hideSearch()" placeholder="Search for products..." />
+  <button type="submit">Search</button>
+  <ul class="suggested-result" *ngIf="searchResult?.length != 0">
+    <li *ngFor="let item of searchResult">
+      <a>{{item.name}}</a>
+    </li>
+  </ul>
+</div>
+
+
 
   <!-- Navigation Links -->
   <div [ngSwitch]="menuType">
