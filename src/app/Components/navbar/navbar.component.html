@@ -1,23 +1,18 @@
 <nav class="navbar">
-  <!-- Logo -->
   <div class="logo">
     <a routerLink="/">E-Commerce</a>
   </div>
 
-  <!-- Search -->
-<div *ngIf="menuType === 'default'" class="search-bar">
-  <input type="text" (keyup)="searchProd($event)" (blur)="hideSearch()" placeholder="Search for products..." />
-  <button type="submit">Search</button>
-  <ul class="suggested-result" *ngIf="searchResult?.length != 0">
-    <li *ngFor="let item of searchResult">
-      <a>{{item.name}}</a>
-    </li>
-  </ul>
-</div>
+  <div *ngIf="menuType === 'default'" class="search-bar">
+    <input type="text" (keyup)="searchProd($event)" (blur)="hideSearch()" placeholder="Search for products..." />
+    <button type="submit">Search</button>
+    <ul class="suggested-result" *ngIf="searchResult.length > 0">
+      <li *ngFor="let item of searchResult">
+        <a>{{item.name}}</a>
+      </li>
+    </ul>
+  </div>
 
-
-
-  <!-- Navigation Links -->
   <div [ngSwitch]="menuType">
     <ul *ngSwitchCase="'default'" class="nav-links">
       <li><a routerLink="/">Home</a></li>

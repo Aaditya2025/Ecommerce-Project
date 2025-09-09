@@ -12,14 +12,13 @@ import { ProductService } from 'src/app/services/product.service';
 export class NavbarComponent implements OnInit {
   menuType: string = 'default';
   sellerName: string = '';
-  searchResult: product[] | undefined;
+  searchResult: product[]= [];
   constructor(private route: Router, private product: ProductService) {}
 
   ngOnInit() {
     this.route.events.subscribe((val: any) => {
       if (val.url) {
         if (localStorage.getItem('seller') && val.url.includes('seller')) {
-          // console.warn('in seller area');
           this.menuType = 'seller';
           if (localStorage.getItem('seller')) {
             let sellerStore = localStorage.getItem('seller');
@@ -27,7 +26,6 @@ export class NavbarComponent implements OnInit {
             this.sellerName = sellerData.name;
           }
         } else {
-          // console.warn('outside seller area');
           this.menuType = 'default';
         }
       }
@@ -45,8 +43,7 @@ export class NavbarComponent implements OnInit {
       const value = element.value.trim();
 
       if (!value) {
-      // if input is empty → clear suggestions
-      this.searchResult = undefined;
+      this.searchResult.length = 0;
       return;
     }
       this.product.searchProducts(element.value).subscribe((res) => {
@@ -63,6 +60,6 @@ export class NavbarComponent implements OnInit {
   }
 
   hideSearch(){
-    this.searchResult = undefined
+    this.searchResult.length = 0;
   }
 }
