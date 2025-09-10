@@ -4,8 +4,13 @@
   </div>
 
   <div *ngIf="menuType === 'default'" class="search-bar">
-    <input type="text" (keyup)="searchProd($event)" (blur)="hideSearch()" placeholder="Search for products..." />
-    <button type="submit">Search</button>
+    <input 
+        #searchInput
+        type="text"
+        (keyup)="searchProd($event)" 
+        (blur)="hideSearch()" 
+        placeholder="Search for products..." />
+    <button type="submit" (click)="submitSearch(searchInput.value)">Search</button>
     <ul class="suggested-result" *ngIf="searchResult.length > 0">
       <li *ngFor="let item of searchResult">
         <a>{{item.name}}</a>

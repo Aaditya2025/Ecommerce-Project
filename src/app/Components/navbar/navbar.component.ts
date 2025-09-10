@@ -62,4 +62,9 @@ export class NavbarComponent implements OnInit {
   hideSearch(){
     this.searchResult.length = 0;
   }
+
+  submitSearch(val:string){
+    console.log(val);
+    this.route.navigate([`search/${val}`])
+  }
 }
