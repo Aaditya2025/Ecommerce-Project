@@ -1,10 +1,21 @@
 import { Component } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
+import { product } from 'src/app/data-type';
+import { ProductService } from 'src/app/services/product.service';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
+  searchResult:undefined | product[];
+  constructor(private activateRoute: ActivatedRoute, private product: ProductService){}
 
+  ngOnInit(){
+    let query = this.activateRoute.snapshot.paramMap.get('query');
+    console.log(query); 
+    query && this.product.searchProducts(query).subscribe((result) => {
+      this.searchResult = result;
+    })
+  }
 }
