@@ -19,4 +19,5 @@ imageUrl: any
     color: string, 
     description: string, 
     image: string
+    rating?: number
 }

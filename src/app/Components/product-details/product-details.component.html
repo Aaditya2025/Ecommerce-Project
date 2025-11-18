@@ -1,0 +1,38 @@
+<div class="product-details-container" *ngIf="productData; else loading">
+  
+  <div class="product-image-section">
+    <img [src]="productData.image" alt="{{ productData.name }}" class="product-image" />
+  </div>
+
+  <div class="product-info-section">
+    <h2 class="product-title">{{ productData.name }}</h2>
+
+    <p class="product-description">
+      {{ productData.description }}
+    </p>
+
+    <div class="product-price-rating">
+      <span class="product-price">₹ {{ productData.price }}</span>
+      <span class="product-rating" *ngIf="productData.rating">⭐ {{ productData.rating }} / 5</span>
+    </div>
+
+    <div class="product-specs" *ngIf="productData.color || productData.category">
+      <h3>Product Info</h3>
+      <ul>
+        <li><strong>Color:</strong> {{ productData.color }}</li>
+        <li><strong>Category:</strong> {{ productData.category }}</li>
+      </ul>
+    </div>
+
+    <div class="product-actions">
+      <button class="btn-primary">Add to Cart</button>
+      <button class="btn-secondary" (click)="goBack()">Back</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- Loader -->
+<ng-template #loading>
+  <div class="loading-text">Loading product details...</div>
+</ng-template>
