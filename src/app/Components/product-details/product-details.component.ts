@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductDetailsComponent implements OnInit{
   productData: undefined | product
+  quantity:number = 1;
 
   constructor(private activateRoute:ActivatedRoute, private product: ProductService) {}
 
@@ -23,4 +24,14 @@ export class ProductDetailsComponent implements OnInit{
   }
 
   goBack(){}
+
+  increaseQty(){
+    this.quantity++; 
+  }
+
+  decreaseQty(){
+    if(this.quantity > 1){
+      this.quantity--;
+    }
+}
 }
