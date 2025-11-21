@@ -26,7 +26,9 @@ export class ProductDetailsComponent implements OnInit{
   goBack(){}
 
   increaseQty(){
-    this.quantity++; 
+    if(this.quantity < 20){
+      this.quantity++;
+    }
   }
 
   decreaseQty(){
