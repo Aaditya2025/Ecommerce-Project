@@ -62,6 +62,10 @@ export class NavbarComponent implements OnInit {
   hideSearch(){
     this.searchResult.length = 0;
   }
+  
+  redirectToDetails(id:number){
+    this.route.navigate([`details/${id}`])
+  }
 
   submitSearch(val:string){
     console.log(val);
