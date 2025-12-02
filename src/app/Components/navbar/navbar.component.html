@@ -22,7 +22,7 @@
     <ul *ngSwitchCase="'default'" class="nav-links">
       <li><a routerLink="/">Home</a></li>
       <li><a routerLink="/seller-auth">Seller</a></li>
-      <li><a href="">Login</a></li>
+      <li><a [routerLink]="['/user-auth']">Login/Sign-Up</a></li>
       <li><a href="">Cart 🛒</a></li>
     </ul>
     <ul *ngSwitchCase="'seller'" class="nav-links">
