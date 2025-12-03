@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SignUp } from 'src/app/data-type';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-auth',
@@ -8,8 +9,10 @@ import { SignUp } from 'src/app/data-type';
 })
 export class UserAuthComponent {
 
+  constructor(private user: UserService) { }
+
   signUp(value:SignUp){
-    console.log("Sign Up data", value); 
+    this.user.userSignUp(value);
   }
 
 }

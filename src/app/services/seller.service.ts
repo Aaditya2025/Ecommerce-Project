@@ -7,7 +7,7 @@ import { Router, withNavigationErrorHandler } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
-export class SellerService {
+export class  SellerService {
   isSellerLoggedIn = new BehaviorSubject<boolean>(false);
   isLoginError = new EventEmitter<boolean>(false)
 
