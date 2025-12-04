@@ -15,8 +15,6 @@ export class UserService {
     .subscribe((result) => {
       if(result){
         localStorage.setItem('user', JSON.stringify(result.body));
-        console.log(result);
-        
         this.router.navigate(['/'])
       }
     })

@@ -13,18 +13,24 @@ export class NavbarComponent implements OnInit {
   menuType: string = 'default';
   sellerName: string = '';
   searchResult: product[]= [];
+  userName: string ='';
+  
   constructor(private route: Router, private product: ProductService) {}
 
   ngOnInit() {
     this.route.events.subscribe((val: any) => {
       if (val.url) {
         if (localStorage.getItem('seller') && val.url.includes('seller')) {
-          this.menuType = 'seller';
-          if (localStorage.getItem('seller')) {
             let sellerStore = localStorage.getItem('seller');
             let sellerData = sellerStore && JSON.parse(sellerStore)[0];
             this.sellerName = sellerData.name;
+            this.menuType = 'seller';
           }
+        else if (localStorage.getItem('user')) {
+          let userStore = localStorage.getItem('user'); 
+          let userData = userStore && JSON.parse(userStore); 
+          this.userName = userData.name; 
+          this.menuType = 'user';
         } else {
           this.menuType = 'default';
         }
