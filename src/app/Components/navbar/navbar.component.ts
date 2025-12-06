@@ -75,6 +75,6 @@ export class NavbarComponent implements OnInit {
 
   submitSearch(val:string){
     console.log(val);
-    this.route.navigate([`search/${val}`])
+    this.route.navigate([`search/${val}`]);
   }
 }
