@@ -11,6 +11,10 @@ export class UserAuthComponent {
 
   constructor(private user: UserService) { }
 
+  ngONInit(): void {
+    this.user.userAuthReload();
+  }
+
   signUp(value:SignUp){
     this.user.userSignUp(value);
   }

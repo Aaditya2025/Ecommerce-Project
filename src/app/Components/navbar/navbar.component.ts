@@ -43,6 +43,11 @@ export class NavbarComponent implements OnInit {
     this.route.navigate(['/']);
   }
 
+  userLogout(){
+    localStorage.removeItem('user');
+    this.route.navigate(['/user-auth']);
+  }
+
   searchProd(query: KeyboardEvent) {
     if (query) {
       const element = query.target as HTMLInputElement;
