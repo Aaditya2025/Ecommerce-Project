@@ -20,11 +20,18 @@ export class UserService {
     })
   }
 
-  userLogIn(user: Login) {}
+  userLogIn(user: Login) {
+    this.http.get<Login>(`http://localhost:3000/users?email=${user.email}.com&password=${user.password}`)
+    .subscribe((result) => {
+      if(result){
+        console.log(result);
+      }
+    })
+  };
 
   userAuthReload(){
     if(localStorage.getItem('user')){
       this.router.navigate(['/']);        
     }
-}
+    }
 }
