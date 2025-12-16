@@ -180,6 +180,12 @@
       "name": "Aditya",
       "email": "abc@gmail.com",
       "password": "abc123"
+    },
+    {
+      "id": "afd8",
+      "name": "Aditya",
+      "email": "abc@gmail.com",
+      "password": "abc123"
     }
   ]
 }

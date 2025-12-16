@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SignUp } from '../data-type';
+import { Login, SignUp } from '../data-type';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -19,6 +19,8 @@ export class UserService {
       }
     })
   }
+
+  userLogIn(user: Login) {}
 
   userAuthReload(){
     if(localStorage.getItem('user')){
