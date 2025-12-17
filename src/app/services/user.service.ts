@@ -20,11 +20,12 @@ export class UserService {
     })
   }
 
-  userLogIn(user: Login) {
-    this.http.get<Login>(`http://localhost:3000/users?email=${user.email}.com&password=${user.password}`)
+  userLogIn(data: Login) {
+    this.http.get<Login>(`http://localhost:3000/users?email=${data.email}.com&password=${data.password}`)
     .subscribe((result) => {
       if(result){
-        console.log(result);
+        localStorage.setItem('user', JSON.stringify(result));
+        this.router.navigate(['/'])
       }
     })
   };
@@ -33,5 +34,5 @@ export class UserService {
     if(localStorage.getItem('user')){
       this.router.navigate(['/']);        
     }
-    }
+  }
 }
