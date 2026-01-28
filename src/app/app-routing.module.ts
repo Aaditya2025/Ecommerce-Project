@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './Components/home/home.component';
+import { HomeComponent } from './Components/navbar/home/home.component';
 import { SellerAuthComponent } from './Components/seller-auth/seller-auth.component';
 import { SellerHomeComponent } from './Components/seller-home/seller-home.component';
 import { sellerAuthGuard } from './seller-auth.guard';
