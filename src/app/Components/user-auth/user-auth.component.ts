@@ -12,19 +12,17 @@ export class UserAuthComponent {
 
   constructor(private user: UserService) { }
 
-  ngONInit(): void {
+  ngOnInit(): void {
     this.user.userAuthReload();
   }
 
   signUp(value:SignUp){
     this.user.userSignUp(value);
-    console.log(value);
     
   }
 
   logIn(value:Login){
     this.user.userLogIn(value);
-    console.log(value);
   }
 
   openLogin(){
