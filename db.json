@@ -174,7 +174,12 @@
       "name": "Aditya",
       "email": "abc@gmail.com",
       "password": "abc"
+    },
+    {
+      "id": "a673",
+      "name": "Aditya",
+      "email": "abc@gmail.com",
+      "password": "abc1234"
     }
-   
   ]
 }

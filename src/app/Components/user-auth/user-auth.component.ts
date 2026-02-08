@@ -23,6 +23,11 @@ export class UserAuthComponent {
 
   logIn(value:Login){
     this.user.userLogIn(value);
+    this.user.invalidUser.subscribe((invalidUser) => {
+      if (invalidUser) {
+        alert("Invalid email or password. Please try again.");
+      }
+    });
   }
 
   openLogin(){

@@ -76,6 +76,12 @@
   transform: translateY(-2px);
 }
 
+.user-auth button:disabled {
+  background: #a0c4ff;
+  cursor: not-allowed;
+  transform: none;
+}
+
 /* Error Message */
 .error-message, .input-validation {
   color: red;

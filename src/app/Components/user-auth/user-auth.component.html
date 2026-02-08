@@ -34,6 +34,7 @@
         ngModel 
         #emailInput="ngModel"
         required
+        email 
       />
       <p class="input-validation"> <span *ngIf="emailInput.invalid && emailInput.touched">Please enter a valid email address</span> </p>
       <input
@@ -43,9 +44,11 @@
         ngModel
         #passwordInput="ngModel"
         required
+        minlength="4"
+        maxlength="15"
       />
       <p class="input-validation"> <span *ngIf="passwordInput.invalid && passwordInput.touched">Please enter a valid password</span></p>
-      <button>Log In</button>
+      <button [disabled]="userLogIn.invalid" class="LogIn-btn" >Log In</button>
       <a class="form-toggle" (click)="openSignUp()"
         >Don't Have Account? Click to SignUp</a
       >
