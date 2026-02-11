@@ -7,8 +7,8 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class UserService {
-  invalidUser = new EventEmitter<boolean>(false);
 
+  invalidUser = new EventEmitter<boolean>(false);
   constructor(private http: HttpClient, private router: Router) { }
 
   userSignUp(user: SignUp) {
@@ -22,13 +22,13 @@ export class UserService {
   }
 
   userLogIn(data: Login) {
-    this.http.get<Login>(`http://localhost:3000/users?email=${data.email}.com&password=${data.password}`)
+    this.http.get<SignUp[]>(`http://localhost:3000/users?email=${data.email}.com&password=${data.password}`)
     .subscribe((result) => {
-      if(result && result.body?.length){ 
+      if(result && result.length > 0){
         this.invalidUser.emit(false);
-        localStorage.setItem('user', JSON.stringify(result.body[0]));
+        localStorage.setItem('user', JSON.stringify(result[0]));
         this.router.navigate(['/'])
-      }else{
+      } else {
         this.invalidUser.emit(true);
       }
     })
