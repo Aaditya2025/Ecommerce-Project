@@ -22,9 +22,9 @@ export class UserService {
   }
 
   userLogIn(data: Login) {
-    this.http.get<SignUp[]>(`http://localhost:3000/users?email=${data.email}.com&password=${data.password}`)
+    this.http.get<SignUp[]>(`http://localhost:3000/users?email=${data.email}&password=${data.password}`)
     .subscribe((result) => {
-      if(result && result.length > 0){
+      if(result && result?.length){
         this.invalidUser.emit(false);
         localStorage.setItem('user', JSON.stringify(result[0]));
         this.router.navigate(['/'])

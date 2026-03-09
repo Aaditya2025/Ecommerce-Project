@@ -9,6 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserAuthComponent {
   showLogin:boolean=true;
+  authError:string='';
 
   constructor(private user: UserService) { }
 
@@ -25,7 +26,7 @@ export class UserAuthComponent {
     this.user.userLogIn(value);
     this.user.invalidUser.subscribe((isInvalid) => {
       if (isInvalid) {
-        console.log('Invalid email or password. Please try again.');
+        this.authError = "Please enter valid email and password";
       }
     });
   }
