@@ -16,9 +16,8 @@ export class ProductDetailsComponent implements OnInit{
 
   ngOnInit(): void {
     let productId = this.activateRoute.snapshot.paramMap.get('productId');
-    console.log(productId);
     productId && this.product.getProduct(productId).subscribe((res) => {
-      console.log(res);
+      // console.log(res);
       this.productData = res;
     })
   }
@@ -35,5 +34,14 @@ export class ProductDetailsComponent implements OnInit{
     if(this.quantity > 1){
       this.quantity--;
     }
-}
+  }
+
+  addToCart(){
+    if(this.productData){
+      this.productData.quantity = this.quantity
+      if(!localStorage.getItem('user')){
+        console.warn(this.productData);
+      }
+    }
+  }
 }
