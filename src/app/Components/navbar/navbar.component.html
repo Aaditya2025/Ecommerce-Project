@@ -3,7 +3,7 @@
     <a routerLink="/">E-Commerce</a>
   </div>
 
-  <div *ngIf="menuType === 'default'" class="search-bar">
+  <div *ngIf="menuType === 'user' || menuType === 'default'" class="search-bar">
     <input #searchInput type="text" (keyup)="searchProd($event)" (blur)="hideSearch()"
       placeholder="Search for products..." />
     <button type="submit" (click)="submitSearch(searchInput.value)">Search</button>
@@ -19,14 +19,28 @@
       <li><a routerLink="/">Home</a></li>
       <li><a routerLink="/seller-auth">Seller</a></li>
       <li><a [routerLink]="['/user-auth']">Login/Sign-Up</a></li>
-      <li><a href="">Cart 🛒</a></li>
+      <li class="cart-icon">
+        <a href="">
+          Cart 🛒
+          <span class="cart-badge" *ngIf="cartItems > 0">
+            {{ cartItems }}
+          </span>
+        </a>
+      </li>
     </ul>
     <ul *ngSwitchCase="'user'" class="nav-links">
       <li><a routerLink="/">Home</a></li>
       <li><a routerLink="/seller-auth">Seller</a></li>
       <li><a routerLink="/">{{userName}}</a></li>
       <li><a (click)="userLogout()">Logout</a></li>
-      <li><a href="">Cart 🛒</a></li>
+      <li class="cart-icon">
+        <a href="">
+          Cart 🛒
+          <span class="cart-badge" *ngIf="cartItems > 0">
+            {{ cartItems }}
+          </span>
+        </a>
+      </li>
     </ul>
     <ul *ngSwitchCase="'seller'" class="nav-links">
       <li><a routerLink="/seller-home">Product List</a></li>

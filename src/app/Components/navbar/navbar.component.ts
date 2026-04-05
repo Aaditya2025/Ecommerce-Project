@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   sellerName: string = '';
   searchResult: product[]= [];
   userName: string ='';
+  cartItems = 0;
   
   constructor(private route: Router, private product: ProductService) {}
 
@@ -35,6 +36,14 @@ export class NavbarComponent implements OnInit {
           this.menuType = 'default';
         }
       }
+    });
+
+    let cartData = localStorage.getItem('localCart');
+    if(cartData){
+      this.cartItems = JSON.parse(cartData).length;
+    } 
+    this.product.cartData.subscribe((items) => {
+      this.cartItems = items.length;
     });
   }
 
