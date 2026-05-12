@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { product } from 'src/app/data-type';
+import { cart, product } from 'src/app/data-type';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -11,6 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductDetailsComponent implements OnInit{
   productData: undefined | product
   quantity:number = 1;
+  removeCart:boolean = false;
 
   constructor(private activateRoute:ActivatedRoute, private product: ProductService) {}
 
@@ -19,6 +20,17 @@ export class ProductDetailsComponent implements OnInit{
     productId && this.product.getProduct(productId).subscribe((res) => {
       this.productData = res;
     })
+
+    let cartData = localStorage.getItem('localCart');
+    if(productId && cartData){
+      let items = JSON.parse(cartData);
+      items = items.filter((item: product) => productId == item.id.toString());
+      if(items.length){
+        this.removeCart = true;
+      } else {
+        this.removeCart = false;
+      }
+    }
   }
 
   goBack(){}
@@ -40,7 +52,26 @@ export class ProductDetailsComponent implements OnInit{
       this.productData.quantity = this.quantity
       if(!localStorage.getItem('user')){
         this.product.localAddToCart(this.productData);
+        this.removeCart = true;
+      }else {
+        console.log('User is logged in, implement server-side cart functionality');
+        let user = localStorage.getItem('user');
+        let userId = user && JSON.parse(user).id; 
+        console.log('User ID:', userId);
+        let cartData: cart = {
+          ...this.productData,
+          userId: userId,
+          productId: this.productData.id
+        }
+        delete cartData.id;
+        console.log('Cart Data to be sent to server:', cartData);
+        }
       }
     }
+
+  removeFromCart(productId:number){
+    this.product.removeItemFromCart(productId);
+    this.removeCart = false;  
   }
+
 }

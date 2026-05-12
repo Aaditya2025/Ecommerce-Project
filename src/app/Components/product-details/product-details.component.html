@@ -35,7 +35,8 @@
         </div>
       </div>
 
-      <button class="btn-primary" (click)="addToCart()">Add to Cart</button>
+      <button *ngIf="!removeCart" class="btn-primary" (click)="addToCart()">Add to Cart</button>
+      <button *ngIf="removeCart" class="btn-secondary" (click)="removeFromCart(productData.id)">Remove from Cart</button>
       <button class="btn-secondary" (click)="goBack()">Buy Now</button>
     </div>
   </div>
