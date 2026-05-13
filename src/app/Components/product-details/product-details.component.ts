@@ -31,6 +31,20 @@ export class ProductDetailsComponent implements OnInit{
         this.removeCart = false;
       }
     }
+
+    let user = localStorage.getItem('user');
+    if(user){
+      let userId = user && JSON.parse(user).id;
+      this.product.getCartList(userId);
+      this.product.cartData.subscribe((items) => {
+        let item = items.filter((item: product) => productId?.toString() == item.productId?.toString());
+        if(item.length){
+          this.removeCart = true;
+        } else {
+          this.removeCart = false;
+        }
+      }); 
+    }
   }
 
   goBack(){}
@@ -56,8 +70,7 @@ export class ProductDetailsComponent implements OnInit{
       }else {
         console.log('User is logged in, implement server-side cart functionality');
         let user = localStorage.getItem('user');
-        let userId = user && JSON.parse(user).id; 
-        console.log('User ID:', userId);
+        let userId = user && JSON.parse(user).id;
         let cartData: cart = {
           ...this.productData,
           userId: userId,
@@ -65,13 +78,19 @@ export class ProductDetailsComponent implements OnInit{
         }
         delete cartData.id;
         console.log('Cart Data to be sent to server:', cartData);
-        }
+        this.product.addToCart(cartData).subscribe((res) => {
+          if(res){
+            this.product.getCartList(userId);
+            this.removeCart = true;   
+          }
+        });  
+
       }
     }
-
+  }
   removeFromCart(productId:number){
     this.product.removeItemFromCart(productId);
-    this.removeCart = false;  
+    this.removeCart = false;
   }
 
 }

@@ -21,6 +21,7 @@ export interface product{
     description: string, 
     image: string
     rating?: number
+    productId?: undefined | number
 }
 export interface cart{
     quantity: undefined | number
